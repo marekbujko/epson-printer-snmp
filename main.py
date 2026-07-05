@@ -224,7 +224,7 @@ class Session(easysnmp.Session):
                 self.read_eeprom(0x00)
                 print(f"Password found: {self.printer.password}")
                 return self.printer.password
-            except IndexError:
+            except (IndexError, ValueError):
                 continue
         return None
 
